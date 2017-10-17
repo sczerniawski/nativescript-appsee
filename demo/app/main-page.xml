@@ -1,0 +1,7 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded" class="page"
+  xmlns:ui="nativescript-appsee">
+  <StackLayout class="p-20">
+      <WebView  loaded="webViewLoaded"
+                src="<!DOCTYPE html><html><body><h1>My First Heading</h1><p>My first paragraph.</p></body></html>" />
+  </StackLayout>
+</Page>
