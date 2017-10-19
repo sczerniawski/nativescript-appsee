@@ -7,19 +7,19 @@ export function setSkipStartValidation(skipStartValidation: boolean): void;
 
 /* Controlling video recording */
 export function stop(): void;
-export function pause(): void;
-export function resume(): void;
+export function pause(wv?: WebView): void;
+export function resume(wv?: WebView): void;
 
 /* Marking views as sensitive */
 export function markViewAsSensitive(view: View): void;
 export function unmarkViewAsSensitive(view: View): void;
 
 /* Labeling events and views in Appsee */
-export function startScreen(screenName: string): void;
+export function startScreen(screenName: string, wv?: WebView): void;
+export function addEvent(eventName: string, wv?: WebView): void;
+export function addScreenAction(actionName: string, wv?: WebView): void;
 export function setUserId(userId: string): void;
 export function setLocationDescription(description: string): void;
-export function addEvent(eventName: string): void;
-export function addScreenAction(actionName: string): void;
 
 /* Appsee Session Management */
 export function finishSession(verifyBackground: boolean, shouldUpload: boolean): void;
