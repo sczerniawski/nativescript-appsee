@@ -1,40 +1,79 @@
-# Your Plugin Name
+# NativeScript Appsee
 
-Add your plugin badges here. See [nativescript-urlhandler](https://github.com/hypery2k/nativescript-urlhandler) for example.
+This is a plugin for [NativeScript](https://www.nativescript.org/) that allows for easy integration
+with the [Appsee app analytics](https://www.appsee.com/) platform.
 
-Then describe what's the purpose of your plugin. 
+## Requirements
 
-In case you develop UI plugin, this is where you can add some screenshots.
-
-## (Optional) Prerequisites / Requirements
-
-Describe the prerequisites that the user need to have installed before using your plugin. See [nativescript-firebase plugin](https://github.com/eddyverbruggen/nativescript-plugin-firebase) for example.
+To use this plugin, you'll need an API key from Appsee analytics.
 
 ## Installation
 
-Describe your plugin installation steps. Ideally it would be something like:
+You can install this plugin simply by running the following `tns` command:
 
 ```javascript
-tns plugin add <your-plugin-name>
+tns plugin add nativescript-appsee
 ```
 
-## Usage 
+## Usage
 
-Describe any usage specifics for your plugin. Give examples for Android, iOS, Angular if needed. See [nativescript-drop-down](https://www.npmjs.com/package/nativescript-drop-down) for example.
-	
-	```javascript
-    Usage code snippets here
-    ```)
+Once you have your Appsee API key you can integrate with Appsee using this plugin by adding the
+following to your application entry points:
 
-## API
+```javascript
+let API_KEY = '1234-5678-ABCD-EFGH';
+Appsee.start(API_KEY);
+```
 
-Describe your plugin methods and properties here. See [nativescript-feedback](https://github.com/EddyVerbruggen/nativescript-feedback) for example.
-    
-| Property | Default | Description |
+Once you have started the Appsee analytics monitoring, you can begin to use the methods exposed
+by the plugin API described below.
+
+## Plugin API
+
+This plugin exposes a unified JavaScript API for the functionality described in the
+[Android](https://www.appsee.com/docs/android/api) and
+[iOS](https://www.appsee.com/docs/ios/api) Appsee API documentation.
+
+##### Starting Appsee Monitoring
+| Function | Arguments | Description |
 | --- | --- | --- |
-| some property | property default value | property description, default values, etc.. |
-| another property | property default value | property description, default values, etc.. |
-    
+| start | apiKey | Enables Appsee monitoring |
+| setSkipStartValidation | skipStartValidation | ¯\\_(ツ)_/¯ |
+
+##### Controlling Appsee Video Recording
+| Function | Arguments | Description |
+| --- | --- | --- |
+| stop | N/A | Stops the Appsee video recording process|
+| pause | N/A | Pauses the Appsee video recording process|
+| resume | N/A | Resumes the Appsee video recording process|
+
+#### Marking and Unmarking Sensitive UI views
+| Function | Arguments | Description |
+| --- | --- | --- |
+| markViewAsSensitive | view | Labels a view as being "sensitive" during an Appsee session |
+| unmarkViewAsSensitive | view | Labels a view as **NOT** being "sensitive" during an Appsee session |
+
+#### Labeling Events and Actions
+| Function | Arguments | Description |
+| --- | --- | --- |
+| startScreen | screenName | Marks the beginning of a new screen on the Appsee session timeline |
+| addEvent | eventName | Adds an event to the session timeline in Appsee |
+| addScreenAction | actionName | Adds an action to the session timeline in Appsee |
+| setUserId | userId | Overrides the user's ID in Appsee for the current session |
+| setLocationDescription | description | Describes the current user's location |
+
+#### Controlling the Appsee Session
+| Function | Arguments | Description |
+| --- | --- | --- |
+| finishSession | verifyBackground, shouldUpload | Prematurely terminates the current Appsee session |
+| forceNewSession | N/A  | Forces the beginning of a new session in Appsee |
+| upload | N/A | Forces the upload of previous Appsee sessions |
+
+#### Controlling the Appsee Session
+| Function | Arguments | Description |
+| --- | --- | --- |
+| installJavascriptInterface | WebView | Embeds an Appsee JavaScript library in the web view, allowing for Appsee methods to be called from within JavaScript. See more information [here](https://www.appsee.com/docs/ios/api#javascript) |
+
 ## License
 
 Apache License Version 2.0, January 2004
