@@ -30,7 +30,6 @@ declare module com {
 
             /* Functions related to managing web views */
             public static installJavascriptInterface(wv: android.webkit.WebView): void;
-            public static startScreenWebView(wv: android.webkit.WebView, screenName: string): void;
         }
     }
 }

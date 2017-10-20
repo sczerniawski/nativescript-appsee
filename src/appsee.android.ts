@@ -14,6 +14,17 @@ export function setSkipStartValidation(skipStartValidation: boolean): void {
 }
 
 
+/* Marking views as sensitive */
+export function markViewAsSensitive(view: View): void {
+    console.log("Marking view as sensitive in Appsee");
+    com.appsee.Appsee.markViewAsSensitive(view.android);
+}
+export function unmarkViewAsSensitive(view: View): void {
+    console.log("Unmarking view as sensitive in Appsee");
+    com.appsee.Appsee.unmarkViewAsSensitive(view.android);
+}
+
+
 /* Labeling events and views in Appsee */
 export function startScreen(screenName: string): void {
     console.log("Starting Appsee screen: " + screenName);
@@ -71,8 +82,4 @@ export function upload(): void {
 export function installJavascriptInterface(wv: WebView): void {
     console.log("Installing JavaScript interface in web view");
     com.appsee.Appsee.installJavascriptInterface(wv.android);
-}
-export function startScreenWebView(wv: WebView, screenName: string): void {
-    console.log("Setting screen name for web view");
-    wv.android.loadUrl(`javascript:Appsee.startScreen("${screenName}");`);
 }

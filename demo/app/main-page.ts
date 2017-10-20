@@ -10,6 +10,9 @@ export function pageLoaded(args: observable.EventData) {
     // Get the event sender
     let page = <pages.Page>args.object;
     page.bindingContext = new HelloWorldModel();
+
+    Appsee.startScreen('mainPage');
+    Appsee.addEvent('WebViewLoaded');
 }
 
 export function webViewLoaded(args): void {
@@ -21,8 +24,5 @@ export function webViewLoaded(args): void {
         console.log("iOS WebView object: " + wv.ios);
     }
 
-    Appsee.startScreen('mainPage');
-    Appsee.addEvent('WebViewLoaded');
-    //Appsee.installJavascriptInterface(wv);
-    //Appsee.startScreen('TestWebViewScreen', wv);
+    Appsee.installJavascriptInterface(wv);
 }
