@@ -23,4 +23,4 @@ publish/package
 demo/report/report.html
 demo/report/stats.json
 
-demo/app/main-view-model.ts
+demo/app/app.ts

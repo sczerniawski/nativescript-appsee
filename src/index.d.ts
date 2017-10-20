@@ -16,10 +16,10 @@ export function unmarkViewAsSensitive(view: View): void;
 
 /* Labeling events and views in Appsee */
 export function startScreen(screenName: string): void;
-export function setUserId(userId: string): void;
-export function setLocationDescription(description: string): void;
 export function addEvent(eventName: string): void;
 export function addScreenAction(actionName: string): void;
+export function setUserId(userId: string): void;
+export function setLocationDescription(description: string): void;
 
 /* Appsee Session Management */
 export function finishSession(verifyBackground: boolean, shouldUpload: boolean): void;
@@ -28,4 +28,3 @@ export function upload(): void;
 
 /* Functions related to managing web views */
 export function installJavascriptInterface(wv: WebView): void;
-export function startScreenWebView(wv: WebView, screenName: string): void;

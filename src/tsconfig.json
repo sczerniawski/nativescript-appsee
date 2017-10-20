@@ -27,7 +27,8 @@
 		}
     },
     "files" : [
-        "appsee.android.ts"
+        "appsee.android.ts",
+        "appsee.ios.ts"
     ],
     "exclude": [
         "node_modules"
