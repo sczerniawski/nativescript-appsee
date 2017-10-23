@@ -21,8 +21,15 @@ Once you have your Appsee API key you can integrate with Appsee using this plugi
 following to your application entry points:
 
 ```javascript
-let API_KEY = '1234-5678-ABCD-EFGH';
-Appsee.start(API_KEY);
+import * as application from 'tns-core-modules/application';
+import * as Appsee from 'nativescript-appsee';
+
+let APPSEE_API_KEY = '1234-5678-ABCD-EFGH';
+
+application.on(application.launchEvent, function(args) {
+    // Appsee.setDebug(true); // Uncomment this line to enable Logcat/NSLog debugging messages
+    Appsee.start(APPSEE_API_KEY);
+});
 ```
 
 Once you have started the Appsee analytics monitoring, you can begin to use the methods exposed
