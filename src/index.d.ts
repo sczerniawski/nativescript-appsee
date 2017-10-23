@@ -2,8 +2,8 @@ import { WebView } from "tns-core-modules/ui/web-view";
 import { View } from "tns-core-modules/ui/core/view";
 
 /* Starting and stopping Appsee monitoring */
+export function setDebug(log: boolean): void;
 export function start(apiKey: string): void;
-export function setSkipStartValidation(skipStartValidation: boolean): void;
 
 /* Controlling video recording */
 export function stop(): void;

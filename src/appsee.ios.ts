@@ -4,15 +4,14 @@ import { View } from "tns-core-modules/ui/core/view";
 declare let Appsee: any;
 
 /* Starting and stopping Appsee monitoring */
+export function setDebug(log: boolean): void {
+    console.log("Enabling NSLog debugging for Appsee");
+    Appsee.setDebugToNSLog(log);
+}
 export function start(apiKey: string): void {
     console.log("Starting Appsee monitoring...");
     Appsee.start(apiKey);
 }
-export function setSkipStartValidation(skipStartValidation: boolean): void {
-    console.log("The setSkipStartValidation function is not available on iOS");
-    return;
-}
-
 
 /* Marking views as sensitive */
 export function markViewAsSensitive(view: View): void {

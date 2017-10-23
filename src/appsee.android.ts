@@ -4,13 +4,13 @@ import { View } from "tns-core-modules/ui/core/view";
 declare let com: any;
 
 /* Starting and stopping Appsee monitoring */
+export function setDebug(log: boolean): void {
+    console.log("Enabling Logcat debugging for Appsee");
+    com.appsee.Appsee.setDebugToLogcat(log);
+}
 export function start(apiKey: string): void {
     console.log("Starting Appsee monitoring...");
     com.appsee.Appsee.start(apiKey);
-}
-export function setSkipStartValidation(skipStartValidation: boolean): void {
-    console.log("Setting skipStartValidation to: " + skipStartValidation);
-    com.appsee.Appsee.setSkipStartValidation(skipStartValidation);
 }
 
 

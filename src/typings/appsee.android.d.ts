@@ -4,6 +4,7 @@ declare module com {
     export module appsee {
         export class Appsee {
             /* Starting and stopping Appsee monitoring */
+            public static setDebugToLogcat(debug: boolean): void;
             public static start(apiKey: string): void;
             public static setSkipStartValidation(skipStartValidation: boolean): void;
 
