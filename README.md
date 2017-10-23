@@ -45,7 +45,7 @@ This plugin exposes a unified JavaScript API for the functionality described in 
 | Function | Arguments | Description |
 | --- | --- | --- |
 | start | apiKey | Enables Appsee monitoring |
-| setSkipStartValidation | skipStartValidation | ¯\\_(ツ)_/¯ |
+| setDebug | log | Enables or disables Logcat/NSLog debugging messages |
 
 ##### Controlling Appsee Video Recording
 | Function | Arguments | Description |
