@@ -16,7 +16,7 @@ export function unmarkViewAsSensitive(view: View): void;
 
 /* Labeling events and views in Appsee */
 export function startScreen(screenName: string): void;
-export function addEvent(eventName: string): void;
+export function addEvent(eventName: string, properties?: object): void;
 export function addScreenAction(actionName: string): void;
 export function setUserId(userId: string): void;
 export function setLocationDescription(description: string): void;

@@ -13,6 +13,14 @@ export function pageLoaded(args: observable.EventData) {
 
     Appsee.startScreen('mainPage');
     Appsee.addEvent('WebViewLoaded');
+    Appsee.addEvent(
+        'WebViewLoadedWithProperties', {
+            'float' : 1.1,
+            'integer' : 1,
+            'string' : "A string",
+            'object' : { "some" : "object" }
+        }
+    );
 }
 
 export function webViewLoaded(args): void {

@@ -22,6 +22,7 @@ declare module com {
             public static setUserId(userId: string): void;
             public static setLocationDescription(description: string): void;
             public static addEvent(eventName: string): void;
+            public static addEvent(eventName: string, properties: java.util.Map<String, Object>): void;
             public static addScreenAction(actionName: string): void;
 
             /* Appsee Session Management */
