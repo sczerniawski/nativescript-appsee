@@ -32,8 +32,27 @@ application.on(application.launchEvent, function(args) {
 });
 ```
 
-Once you have started the Appsee analytics monitoring, you can begin to use the methods exposed
-by the plugin API described below.
+Once Appsee has been started, you can tag screens and send events like in the example shown below:
+
+```javascript
+import * as Appsee from 'nativescript-appsee';
+
+Appsee.startScreen('SelfDestructScreen');
+Appsee.addScreenAction('UserHitSelfDestructButton');
+Appsee.addEvent('SelfDestructInitiated');
+Appsee.addEvent(
+    'SelfDestructInitiatedWithProperties', {
+        'time_until_destruction' : 19.1,
+        'tons_of_tnt' : 3,
+        'message' : "RIP",
+        'snapshot' : {
+          "current_device_state" : "¯\_(ツ)_/¯"
+        }
+    }
+);
+```
+
+A full description of all available methods is included in the section below.
 
 ## Plugin API
 
@@ -65,6 +84,7 @@ This plugin exposes a unified JavaScript API for the functionality described in 
 | --- | --- | --- |
 | startScreen | screenName | Marks the beginning of a new screen on the Appsee session timeline |
 | addEvent | eventName | Adds an event to the session timeline in Appsee |
+| addEvent | eventName, properties | Adds an event with the supplied map of properties to the session timeline in Appsee |
 | addScreenAction | actionName | Adds an action to the session timeline in Appsee |
 | setUserId | userId | Overrides the user's ID in Appsee for the current session |
 | setLocationDescription | description | Describes the current user's location |
