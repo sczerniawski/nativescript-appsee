@@ -1,7 +1,49 @@
+/// <reference path="../node_modules/tns-platform-declarations/ios.d.ts" />
 import { WebView } from "tns-core-modules/ui/web-view";
 import { View } from "tns-core-modules/ui/core/view";
 
 declare let Appsee: any;
+
+/* Helper functions */
+function toIOSValue(jsValue: any) {
+    let returnVal = null;
+
+    if(jsValue !== null) {
+        switch(typeof jsValue) {
+            case 'object':
+                returnVal = JSON.stringify(jsValue);
+                break;
+            case 'boolean':
+            case "number":
+            case "string":
+                returnVal = jsValue;
+                break;
+            default:
+                console.log(`Unhandled type: ${typeof jsValue}`);
+                break;
+        }
+    }
+
+    return returnVal;
+}
+
+function toNSDictionary(obj: object) {
+    let iosDictionary = NSMutableDictionary.new();
+
+    for(const property in obj) {
+        if(obj.hasOwnProperty(property)) {
+            let value = obj[property];
+
+            if(value === null) {
+                 iosDictionary.setObjectForKey(null, property);
+            } else {
+                 iosDictionary.setObjectForKey(toIOSValue(value), property);
+            }
+        }
+    }
+
+    return iosDictionary;
+}
 
 /* Starting and stopping Appsee monitoring */
 export function setDebug(log: boolean): void {
@@ -37,9 +79,14 @@ export function setLocationDescription(description: string): void {
     console.log("Setting location description: " + description);
     Appsee.setLocationDescription(description);
 }
-export function addEvent(eventName: string): void {
-    console.log("Adding event without properties: " + eventName);
-    Appsee.addEvent(eventName);
+export function addEvent(eventName: string, properties?: object): void {
+    if(properties) {
+        console.log("Adding event with properties: " + eventName);
+        Appsee.addEventWithProperties(eventName, toNSDictionary(properties));
+    } else {
+        console.log("Adding event without properties: " + eventName);
+        Appsee.addEvent(eventName);
+    }
 }
 export function addScreenAction(actionName: string): void {
     console.log("Adding screen action: " + actionName);
