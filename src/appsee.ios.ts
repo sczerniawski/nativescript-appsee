@@ -1,4 +1,4 @@
-/// <reference path="../node_modules/tns-platform-declarations/ios.d.ts" />
+/// <reference path="./node_modules/tns-platform-declarations/ios.d.ts" />
 import { WebView } from "tns-core-modules/ui/web-view";
 import { View } from "tns-core-modules/ui/core/view";
 
