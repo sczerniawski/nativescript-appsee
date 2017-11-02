@@ -6,7 +6,7 @@ declare let Appsee: any;
 
 /* Helper functions */
 function toIOSValue(jsValue: any) {
-    let returnVal = null;
+    let returnVal = "null";
 
     if(jsValue !== null) {
         switch(typeof jsValue) {
@@ -34,8 +34,8 @@ function toNSDictionary(obj: object) {
         if(obj.hasOwnProperty(property)) {
             let value = obj[property];
 
-            if(value === null) {
-                 iosDictionary.setObjectForKey(null, property);
+            if(value === null || value === undefined) {
+                 iosDictionary.setObjectForKey('null', property);
             } else {
                  iosDictionary.setObjectForKey(toIOSValue(value), property);
             }
