@@ -18,6 +18,7 @@ export function pageLoaded(args: observable.EventData) {
             'float' : 1.1,
             'integer' : 1,
             'string' : "A string",
+            'test-null' : null,
             'object' : { "some" : "object" }
         }
     );
