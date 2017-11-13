@@ -4,7 +4,7 @@
         "allowUnreachableCode": false,
         "allowUnusedLabels": false,
         "baseUrl": ".",
-        "declaration": true,
+        "declaration": false,
         "emitDecoratorMetadata": false,
         "experimentalDecorators": true,
         "forceConsistentCasingInFileNames": true,
@@ -15,7 +15,8 @@
             "dom"
         ],
         "module": "commonjs",
-        "noEmitHelpers": true,"noEmitOnError": false,
+        "noEmitHelpers": true,
+        "noEmitOnError": false,
         "noFallthroughCasesInSwitch": true,
         "noImplicitAny": true,
         "noImplicitReturns": true,

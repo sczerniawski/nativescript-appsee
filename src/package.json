@@ -6,14 +6,14 @@
   "typings": "index.d.ts",
   "nativescript": {
     "tns-android": {
-      "version": "3.3.1"
+      "version": "3.2.0"
     },
     "tns-ios": {
-      "version": "3.3.0"
+      "version": "3.2.0"
     }
   },
   "scripts": {
-    "_install": "npm install --no-shrinkwrap",
+    "_install": "npm install --no-optional",
     "build": "npm run _install && tsc",
     "postclone": "npm run _install && node scripts/postclone.js && cd ../demo && npm run _install && cd ../src && npm run plugin.link",
     "test.android": "npm run _install && npm run tsc && npm run tslint && cd ../demo && tns build android && tns test android --justlaunch",
@@ -48,12 +48,10 @@
     "prompt": "^1.0.0",
     "rimraf": "^2.5.0",
     "tslint": "^5.0.0",
+    "tns-core-modules": "~3.3.0",
+    "tns-platform-declarations": "~3.3.0",
     "typescript": "~2.6.1"
   },
-  "dependencies": {
-    "tns-core-modules": "~3.3.0",
-    "tns-core-modules-widgets": "~3.3.0",
-    "tns-platform-declarations": "~3.3.0"
-  },
+  "dependencies": {},
   "bootstrapper": "nativescript-plugin-seed"
 }
