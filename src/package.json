@@ -1,6 +1,6 @@
 {
   "name": "nativescript-appsee",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Integration for the Appsee analytics platform",
   "main": "appsee",
   "typings": "index.d.ts",
