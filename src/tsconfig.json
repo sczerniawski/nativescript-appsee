@@ -1,37 +1,48 @@
 {
+    "compileOnSave": true,
     "compilerOptions": {
-        "target": "es5",
-        "module": "commonjs",
-        "declaration": true,
-        "removeComments": true,
-        "noLib": false,
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "lib": ["es6", "dom"],
-        "sourceMap": true,
-        "pretty": true,
         "allowUnreachableCode": false,
         "allowUnusedLabels": false,
+        "baseUrl": ".",
+        "declaration": false,
+        "emitDecoratorMetadata": false,
+        "experimentalDecorators": true,
+        "forceConsistentCasingInFileNames": true,
+        "inlineSources": false,
+        "inlineSourceMap": false,
+        "lib": [
+            "es6",
+            "dom"
+        ],
+        "module": "commonjs",
         "noEmitHelpers": true,
         "noEmitOnError": false,
-        "noImplicitAny": false,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitAny": true,
         "noImplicitReturns": true,
         "noImplicitUseStrict": false,
-        "noFallthroughCasesInSwitch": true,
-        "baseUrl" : ".",
-		"paths": {
-			"*": [
-				"./node_modules/*",
-				"./node_modules/tns-core-modules/*"
-			]
-		}
+        "noLib": false,
+        "paths": {
+            "*": [
+                "./node_modules/*"
+            ]
+        },
+        "pretty": true,
+        "preserveConstEnums": true,
+        "removeComments": true,
+        "skipLibCheck": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "target": "es5"
     },
-    "files" : [
-        "appsee.android.ts",
-        "appsee.ios.ts"
-    ],
     "exclude": [
-        "node_modules"
+        "**/*.aot.ts",
+        "**/*.js",
+        "demo*",
+        "dist",
+        "node_modules",
+        "platforms"
     ],
-    "compileOnSave": false
+    "include": [
+        "./**/*"
+    ]
 }
