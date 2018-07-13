@@ -1,18 +1,30 @@
 .vscode
 .idea
 .DS_Store
+*.js
 *.js.map
 *.log
+*.tgz
 *.tar.gz
 node_modules
 
+demo*/app/*.js
+demo*/hooks
+demo*/platforms
+demo*/node_modules
+demo*/report/report.html
+demo*/report/stats.json
+
 seed-tests/seed-copy/**/*.*
 seed-tests/seed-copy-new-git-repo/**/*.*
-demo/lib
-demo/platforms
-demo/node_modules
-demo/report/report.html
-demo/report/stats.json
-demo/app/app.ts
+
 publish/src
 publish/package
+
+
+# DO not ignore files/folders
+!dist/*
+
+!demo*/karma.conf.js
+!demo*/app/tests/*.js
+!seed-tests/*.js
