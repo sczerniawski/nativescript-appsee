@@ -1,6 +1,7 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded" class="page"
   xmlns:ui="nativescript-appsee">
   <GridLayout class="p-20">
-      <WebView loaded="webViewLoaded" src="https://www.google.com"></WebView>
+      <!-- <WebView loaded="webViewLoaded" src="https://www.google.com"></WebView> -->
+      <Label>Tesing...</Label>
   </GridLayout>
 </Page>

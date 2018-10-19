@@ -1,35 +1,56 @@
 {
+    "compileOnSave": true,
     "compilerOptions": {
-        "target": "es5",
-        "module": "commonjs",
-        "declaration": false,
-        "removeComments": true,
-        "noLib": false,
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "lib": [
-            "es6",
-            "dom"
-        ],
-        "pretty": true,
         "allowUnreachableCode": false,
         "allowUnusedLabels": false,
-        "noEmitHelpers": true,
-        "noEmitOnError": false,
+        "baseUrl": ".",
+        "declaration": false,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "inlineSources": false,
+        "inlineSourceMap": false,
+        "lib": [
+            "dom",
+            "es2015.iterable",
+            "es6",
+            "es2017",
+            "scripthost"
+        ],
+        "module": "commonjs",
+        "noEmitHelpers": false,
+        "noEmitOnError": true,
+        "noFallthroughCasesInSwitch": true,
         "noImplicitAny": false,
         "noImplicitReturns": true,
-        "noImplicitUseStrict": false,
-        "noFallthroughCasesInSwitch": true,
-        "baseUrl": ".",
+        "noImplicitUseStrict": true,
+        "noLib": false,
         "paths": {
             "*": [
                 "./node_modules/*"
+            ],
+            "~/*": [
+                "./app/*"
             ]
-        }
+        },
+        "pretty": true,
+        "skipLibCheck": true,
+        "removeComments": true,
+        "target": "es6"
     },
     "exclude": [
+        "**/*.aot.ts",
+        "**/*.js",
+        "dist",
         "node_modules",
-        "platforms"
+        "platforms",
+        "hooks",
+        "npm_plugins",
+        ".tmp_backup"
     ],
-    "compileOnSave": false
+    "filesGlob": [
+        "./app/"
+    ],
+    "include": [
+        "app/**/*"
+    ]
 }
