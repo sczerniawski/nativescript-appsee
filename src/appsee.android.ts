@@ -9,16 +9,16 @@ function toJavaValue(jsValue: any) {
     let returnVal = null;
 
     // Convert the JavaScript type into the appropriate Java type
-    if(jsValue !== null) {
-        switch(typeof jsValue) {
-            case 'object':
+    if (jsValue !== null) {
+        switch (typeof jsValue) {
+            case "object":
                 returnVal = JSON.stringify(jsValue);
                 break;
-            case 'boolean':
+            case "boolean":
                 returnVal = java.lang.Boolean.valueOf(String(jsValue));
                 break;
             case "number":
-                if(Number(jsValue) === jsValue && jsValue % 1 === 0) {
+                if (Number(jsValue) === jsValue && jsValue % 1 === 0) {
                     returnVal = java.lang.Integer.valueOf(String(jsValue));
                 } else {
                     returnVal = java.lang.Double.valueOf(String(jsValue));
@@ -40,14 +40,14 @@ function objectToJavaMap(obj: object) {
     let javaMap = new java.util.HashMap<String, Object>();
 
     for (const property in obj) {
-        if(obj.hasOwnProperty(property)) {
+        if (obj.hasOwnProperty(property)) {
             let value = obj[property];
 
-            if(value === null) {
+            if (value === null) {
                 javaMap.put(property, null);
             } else {
                 let javaValue = toJavaValue(value);
-                if(javaValue !== null) {
+                if (javaValue !== null) {
                     javaMap.put(property, javaValue);
                 }
             }
@@ -67,7 +67,6 @@ export function start(apiKey: string): void {
     com.appsee.Appsee.start(apiKey);
 }
 
-
 /* Marking views as sensitive */
 export function markViewAsSensitive(view: View): void {
     console.log("Marking view as sensitive in Appsee");
@@ -77,7 +76,6 @@ export function unmarkViewAsSensitive(view: View): void {
     console.log("Unmarking view as sensitive in Appsee");
     com.appsee.Appsee.unmarkViewAsSensitive(view.android);
 }
-
 
 /* Labeling events and views in Appsee */
 export function startScreen(screenName: string): void {
@@ -93,7 +91,7 @@ export function setLocationDescription(description: string): void {
     com.appsee.Appsee.setLocationDescription(description);
 }
 export function addEvent(eventName: string, properties?: object): void {
-    if(properties) {
+    if (properties) {
         console.log("Adding event with properties: " + eventName);
         let javaMap = objectToJavaMap(properties);
         com.appsee.Appsee.addEvent(eventName, javaMap);
@@ -106,7 +104,6 @@ export function addScreenAction(actionName: string): void {
     console.log("Adding screen action: " + actionName);
     com.appsee.Appsee.addScreenAction(actionName);
 }
-
 
 /* Controlling video recording */
 export function stop(): void {
@@ -122,9 +119,11 @@ export function resume(): void {
     com.appsee.Appsee.resume();
 }
 
-
 /* Appsee Session Management */
-export function finishSession(verifyBackground: boolean, shouldUpload: boolean): void {
+export function finishSession(
+    verifyBackground: boolean,
+    shouldUpload: boolean
+): void {
     console.log("Terminating current Appsee session");
     com.appsee.Appsee.finishSession(verifyBackground, shouldUpload);
 }
