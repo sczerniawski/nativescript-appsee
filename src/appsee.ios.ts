@@ -2,7 +2,11 @@
 import { WebView } from "tns-core-modules/ui/web-view";
 import { View } from "tns-core-modules/ui/core/view";
 
-declare let Appsee: any;
+declare let AppseeAnalytics: any;
+
+// Alias the actual package to an internal variable
+const Appsee: any = AppseeAnalytics;
+
 let packageExists = true;
 if (typeof Appsee === "undefined" || !Appsee) {
     packageExists = false;

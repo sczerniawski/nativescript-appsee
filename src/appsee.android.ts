@@ -3,8 +3,12 @@ import { WebView } from "tns-core-modules/ui/web-view";
 import { View } from "tns-core-modules/ui/core/view";
 
 declare let com: any;
+
+// Alias the actual package to an internal variable
+const Appsee: any = com.appsee.Appsee;
+
 let packageExists = true;
-if (typeof com.appsee.Appsee === "undefined" || !com.appsee.Appsee) {
+if (typeof Appsee === "undefined" || !Appsee) {
     packageExists = false;
     console.error("Appsee plugin is not installed correctly!!!");
 }
@@ -69,7 +73,7 @@ export function setDebug(log: boolean): void {
     }
 
     console.log("Enabling Logcat debugging for Appsee");
-    com.appsee.Appsee.setDebugToLogcat(log);
+    Appsee.setDebugToLogcat(log);
 }
 export function start(apiKey: string): void {
     if (!packageExists) {
@@ -77,7 +81,7 @@ export function start(apiKey: string): void {
     }
 
     console.log("Starting Appsee monitoring...");
-    com.appsee.Appsee.start(apiKey);
+    Appsee.start(apiKey);
 }
 
 /* Marking views as sensitive */
@@ -87,7 +91,7 @@ export function markViewAsSensitive(view: View): void {
     }
 
     console.log("Marking view as sensitive in Appsee");
-    com.appsee.Appsee.markViewAsSensitive(view.android);
+    Appsee.markViewAsSensitive(view.android);
 }
 export function unmarkViewAsSensitive(view: View): void {
     if (!packageExists) {
@@ -95,7 +99,7 @@ export function unmarkViewAsSensitive(view: View): void {
     }
 
     console.log("Unmarking view as sensitive in Appsee");
-    com.appsee.Appsee.unmarkViewAsSensitive(view.android);
+    Appsee.unmarkViewAsSensitive(view.android);
 }
 
 /* Labeling events and views in Appsee */
@@ -105,7 +109,7 @@ export function startScreen(screenName: string): void {
     }
 
     console.log("Starting Appsee screen: " + screenName);
-    com.appsee.Appsee.startScreen(screenName);
+    Appsee.startScreen(screenName);
 }
 export function setUserId(userId: string): void {
     if (!packageExists) {
@@ -113,7 +117,7 @@ export function setUserId(userId: string): void {
     }
 
     console.log("Setting user ID to: " + userId);
-    com.appsee.Appsee.setUserId(userId);
+    Appsee.setUserId(userId);
 }
 export function setLocationDescription(description: string): void {
     if (!packageExists) {
@@ -121,7 +125,7 @@ export function setLocationDescription(description: string): void {
     }
 
     console.log("Setting location description: " + description);
-    com.appsee.Appsee.setLocationDescription(description);
+    Appsee.setLocationDescription(description);
 }
 export function addEvent(eventName: string, properties?: object): void {
     if (!packageExists) {
@@ -131,10 +135,10 @@ export function addEvent(eventName: string, properties?: object): void {
     if (properties) {
         console.log("Adding event with properties: " + eventName);
         let javaMap = objectToJavaMap(properties);
-        com.appsee.Appsee.addEvent(eventName, javaMap);
+        Appsee.addEvent(eventName, javaMap);
     } else {
         console.log("Adding event without properties: " + eventName);
-        com.appsee.Appsee.addEvent(eventName);
+        Appsee.addEvent(eventName);
     }
 }
 export function addScreenAction(actionName: string): void {
@@ -143,7 +147,7 @@ export function addScreenAction(actionName: string): void {
     }
 
     console.log("Adding screen action: " + actionName);
-    com.appsee.Appsee.addScreenAction(actionName);
+    Appsee.addScreenAction(actionName);
 }
 
 /* Controlling video recording */
@@ -153,7 +157,7 @@ export function stop(): void {
     }
 
     console.log("Stopping Appsee video recording...");
-    com.appsee.Appsee.stop();
+    Appsee.stop();
 }
 export function pause(): void {
     if (!packageExists) {
@@ -161,7 +165,7 @@ export function pause(): void {
     }
 
     console.log("Pausing Appsee video recording...");
-    com.appsee.Appsee.pause();
+    Appsee.pause();
 }
 export function resume(): void {
     if (!packageExists) {
@@ -169,7 +173,7 @@ export function resume(): void {
     }
 
     console.log("Resuming Appsee video recording...");
-    com.appsee.Appsee.resume();
+    Appsee.resume();
 }
 
 /* Appsee Session Management */
@@ -182,7 +186,7 @@ export function finishSession(
     }
 
     console.log("Terminating current Appsee session");
-    com.appsee.Appsee.finishSession(verifyBackground, shouldUpload);
+    Appsee.finishSession(verifyBackground, shouldUpload);
 }
 export function forceNewSession(): void {
     if (!packageExists) {
@@ -190,7 +194,7 @@ export function forceNewSession(): void {
     }
 
     console.log("Forcing intialization of new Appsee session");
-    com.appsee.Appsee.forceNewSession();
+    Appsee.forceNewSession();
 }
 
 export function upload(): void {
@@ -199,7 +203,7 @@ export function upload(): void {
     }
 
     console.log("Forcing upload of session");
-    com.appsee.Appsee.upload();
+    Appsee.upload();
 }
 
 /* Functions related to managing web views */
@@ -209,5 +213,5 @@ export function installJavascriptInterface(wv: WebView): void {
     }
 
     console.log("Installing JavaScript interface in web view");
-    com.appsee.Appsee.installJavascriptInterface(wv.android);
+    Appsee.installJavascriptInterface(wv.android);
 }
