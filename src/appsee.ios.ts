@@ -2,7 +2,9 @@
 import { WebView } from "tns-core-modules/ui/web-view";
 import { View } from "tns-core-modules/ui/core/view";
 
-/*** Start Appsee Analytics SDK ***/
+declare let Appsee: any;
+
+/*** Start Appsee Analytics SDK ***
 declare let AppseeAnalytics: any;
 
 // Alias the actual package to an internal variable
