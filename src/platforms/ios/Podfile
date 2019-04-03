@@ -1,2 +1,1 @@
-pod 'AppseeAnalytics' # Appsee Analytics SDK
-# pod 'Appsee' # Appsee Wireframe Replay SDK
+pod 'Appsee'
